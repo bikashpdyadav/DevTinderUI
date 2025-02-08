@@ -19,18 +19,22 @@ const Body = () => {
     }
     catch (err) {
       console.log(err);
-      if(err.status === 401) navigate("/login");
+      if (err.status === 401) navigate("/login");
     }
   };
 
   useEffect(() => {
-    if(!userData) fetchUser();
-  },[]);
+    if (!userData) fetchUser();
+  }, []);
 
   return (
-    <div>
+    <div className="h-screen flex flex-col">
       <NavBar />
-      <Outlet />
+
+      <div className="flex-grow flex justify-center items-center">
+        <Outlet />
+      </div>
+
       <Footer />
     </div>
   )
