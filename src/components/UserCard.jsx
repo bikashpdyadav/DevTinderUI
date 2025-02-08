@@ -3,6 +3,8 @@ import React from 'react';
 const UserCard = ({ user }) => {
     const { firstName, lastName, about, photoUrl, skills, age, gender } = user;
     const isProfile = location.pathname.includes('profile');
+    const isConnection = location.pathname.includes('conections');
+
     return (
         <div className="card bg-base-300 w-96 shadow-xl">
             <figure>
@@ -28,7 +30,7 @@ const UserCard = ({ user }) => {
                     {age && <p>Age: {age}</p>}
                     {gender && <p>Gender: {gender}</p>}
                 </div>
-                {!isProfile && <div className="card-actions justify-between mt-6">
+                {!isProfile && !isConnection && <div className="card-actions justify-between mt-6">
                     <button className="btn btn-primary">Ignore</button>
                     <button className="btn btn-secondary">Interested</button>
                 </div>}

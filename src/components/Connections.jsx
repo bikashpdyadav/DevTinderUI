@@ -8,7 +8,7 @@ import UserCard from './UserCard';
 const Connections = () => {
     const dispatch = useDispatch();
     const connections = useSelector((store) => store.connections);
-    
+    console.log(connections)
     const fetchConnections = async () => {
         try {
             const res = await axios.get(BASE_URL + "/user/connections", { withCredentials: true });
@@ -29,12 +29,7 @@ const Connections = () => {
     return (
         <div>
             <h1 className='text-3xl font-bold flex justify-center m-4 p-4'>Connections</h1>
-            <div  className='flex gap-8 m-4 p-4'>
-                {connections.map((connection) => {
-                    {console.log(connection)}
-                    return <UserCard user={connection} />
-                })}
-            </div>
+            <ConnectionsCard users={connections} />
         </div>
     )
 };
