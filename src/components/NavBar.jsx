@@ -11,16 +11,16 @@ const NavBar = () => {
     const navigate = useNavigate();
 
     const handleLogout = async () => {
-        try{
-            await axios.post(BASE_URL+"/logout", {}, {withCredentials: true});
+        try {
+            await axios.post(BASE_URL + "/logout", {}, { withCredentials: true });
             dispatch(removeUser());
             return navigate("/login")
         }
-        catch(err){
+        catch (err) {
             console.log(err);
         }
     };
-    
+
     return (
         <div className="navbar bg-base-300">
             <div className="flex-1">
@@ -46,7 +46,11 @@ const NavBar = () => {
                                     <span className="badge">New</span>
                                 </Link>
                             </li>
-                            <li><a>Settings</a></li>
+                            <li>
+                                <Link to={"/connections"}>
+                                    Connections
+                                </Link>
+                            </li>
                             <li><a onClick={handleLogout}>Logout</a></li>
                         </ul>
                     </div>}
