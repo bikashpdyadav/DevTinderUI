@@ -2,11 +2,13 @@ import React from 'react';
 import { removeUserFromFeed } from '../utils/feedSlice';
 import axios from 'axios';
 import { BASE_URL } from '../utils/constants';
+import { useDispatch } from 'react-redux';
 
 const UserCard = ({ user }) => {
     const { _id, firstName, lastName, about, photoUrl, skills, age, gender } = user;
     const isProfile = location.pathname.includes('profile');
     const isConnection = location.pathname.includes('connections');
+    const dispatch = useDispatch();
 
     const handleSendRequest = async (status, userId) => {
         try {
@@ -32,7 +34,7 @@ const UserCard = ({ user }) => {
                         <label>About: </label>
                         <p>{about}</p>
                     </div>
-                    {skills.length !== 0 &&
+                    {skills && skills.length !== 0 &&
                         <div>
                             <label>Skills: </label>
                             <p>{skills.map((skill) => {

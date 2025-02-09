@@ -40,7 +40,7 @@ const EditProfile = () => {
             }, { withCredentials: true });
 
             dispatch(removeUser());
-            dispatch(addUser(res?.data?.loggedInUser));
+            dispatch(addUser(res?.data?.data));
             setShowToast(true);
             setTimeout(() => {
                 setShowToast(false);
