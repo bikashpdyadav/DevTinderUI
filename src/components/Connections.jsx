@@ -31,7 +31,7 @@ const Connections = () => {
             <h1 className='text-3xl font-bold flex justify-center m-4 p-4'>Connections</h1>
             <div className="flex-grow flex gap-6 m-4 p-4">
                 {connections.map((connection) => {
-                    return <UserCard user={connection} />
+                    return <UserCard key={connection._id} user={connection} />
                 })}
             </div>
         </div>
